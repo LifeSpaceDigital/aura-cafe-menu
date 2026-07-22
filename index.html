@@ -3,14 +3,347 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Lounge Cafe | Premium Menu</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- English and Armenian Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Armenian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>AURA | Premium Lounge & Cafe</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Armenian:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Auto-redirect to correct GitHub Pages path -->
+    <style>
+        /* =========================================
+           1. CORE VARIABLES & RESET
+           ========================================= */
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --gold: #d4af37;
+            --gold-light: #f4e4c1;
+            --gold-dim: rgba(212, 175, 55, 0.15);
+            --text-muted: #888888;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 0%, #1a1500 0%, var(--bg-dark) 60%);
+            color: var(--gold-light);
+            font-family: 'Inter', 'Noto Sans Armenian', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        body.armenian { font-family: 'Noto Sans Armenian', 'Inter', sans-serif; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+        /* =========================================
+           2. HEADER & NAVIGATION
+           ========================================= */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            z-index: 1000;
+        }
+
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 4px;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            letter-spacing: 1px;
+        }
+
+        .lang-btn.active {
+            background: var(--gold);
+            color: var(--bg-dark);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* =========================================
+           3. MAIN LAYOUT & HERO
+           ========================================= */
+        .main-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 5% 80px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 0 80px;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.5rem, 8vw, 7rem); /* Responsive huge text */
+            color: var(--gold);
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+            text-shadow: 0 10px 40px rgba(212, 175, 55, 0.15);
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .hero .divider {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           4. CATEGORY TABS (Navigation)
+           ========================================= */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            animation: fadeUp 1s ease-out 0.2s backwards;
+        }
+
+        .nav-tab {
+            background: transparent;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--text-muted);
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 1px;
+        }
+
+        .nav-tab:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background: var(--gold);
+            color: var(--bg-dark);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25);
+            font-weight: 600;
+        }
+
+        /* =========================================
+           5. MENU CONTENT AREA
+           ========================================= */
+        .menu-content {
+            display: none; /* Hidden by default, JS toggles this */
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .menu-content.active {
+            display: block;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Grid Layout for Menu Items */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Big, spacious cards */
+            gap: 30px;
+        }
+
+        .menu-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            background: #1a1a1a;
+            border-color: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .menu-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .menu-item.featured {
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.08) 0%, var(--bg-card) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .item-details {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .item-details h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--gold-light);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .item-details p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .item-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            font-weight: 700;
+            white-space: nowrap;
+            padding-top: 5px;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold);
+            color: var(--bg-dark);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           6. FOOTER
+           ========================================= */
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 80px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           7. ANIMATIONS
+           ========================================= */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* =========================================
+           8. MOBILE RESPONSIVE
+           ========================================= */
+        @media (max-width: 768px) {
+            .top-bar { padding: 0 4%; height: 70px; }
+            .brand { font-size: 1.5rem; letter-spacing: 2px; }
+            .main-wrapper { padding: 90px 4% 60px; }
+            .hero { padding: 40px 0 60px; }
+            .category-nav { gap: 10px; }
+            .nav-tab { padding: 12px 20px; font-size: 0.9rem; }
+            .menu-grid { grid-template-columns: 1fr; } /* 1 column on mobile */
+            .menu-item { padding: 25px; flex-direction: column; gap: 15px; }
+            .item-details { padding-right: 0; }
+            .item-price { align-self: flex-end; font-size: 1.4rem; }
+            .featured-badge { top: 15px; right: 15px; }
+        }
+    </style>
+
+    <!-- Auto-redirect for GitHub Pages -->
     <script>
       if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
         window.location.href = '/aura-cafe-menu/';
@@ -19,198 +352,209 @@
 </head>
 <body>
 
-    <div class="app-container">
-        
-        <!-- LANGUAGE TOGGLE (Top Right) -->
+    <!-- TOP BAR -->
+    <header class="top-bar">
+        <div class="brand">AURA</div>
         <div class="lang-switch">
-            <button id="btn-en" class="lang-btn active" onclick="setLanguage('en')">EN</button>
-            <button id="btn-am" class="lang-btn" onclick="setLanguage('am')">ՀԱՅ</button>
+            <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="setLanguage('am')">ՀԱՅ</button>
         </div>
+    </header>
 
-        <!-- ==================== MAIN MENU HUB ==================== -->
-        <div id="main-menu" class="view active">
-            <header class="main-header">
-                <h1 class="cafe-name">AURA</h1>
-                <p class="tagline" data-en="LOUNGE & CAFE" data-am="Լաունջ և Սրճարան">LOUNGE & CAFE</p>
-                <div class="divider"></div>
-                <p class="subtitle" data-en="Select a category to explore" data-am="Ընտրեք բաժինը դիտելու համար">Select a category to explore</p>
-            </header>
+    <!-- MAIN CONTENT -->
+    <main class="main-wrapper">
+        
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <h1>AURA</h1>
+            <p class="tagline" data-en="LOUNGE & CAFE" data-am="Լաունջ և Սրճարան">LOUNGE & CAFE</p>
+            <div class="divider"></div>
+        </section>
 
-            <div class="category-grid">
-                <div class="category-card" onclick="showPage('coffee-page')">
-                    <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
-                    <h3 data-en="Coffee & Drinks" data-am="Սուրճ և Ըմպելիքներ">Coffee & Drinks</h3>
-                    <p data-en="Espresso, Lattes & Cold Brews" data-am="Էսպրեսսո, լատտե և սառը սուրճ">Espresso, Lattes & Cold Brews</p>
-                </div>
-
-                <div class="category-card" onclick="showPage('food-page')">
-                    <div class="card-icon"><i class="fa-solid fa-utensils"></i></div>
-                    <h3 data-en="Food" data-am="Ուտեստներ">Food</h3>
-                    <p data-en="Breakfast, Wraps & Savory Bites" data-am="Նախաճաշ, ռափեր և թեթև ուտեստներ">Breakfast, Wraps & Savory Bites</p>
-                </div>
-
-                <div class="category-card" onclick="showPage('desserts-page')">
-                    <div class="card-icon"><i class="fa-solid fa-cake-candles"></i></div>
-                    <h3 data-en="Desserts" data-am="Աղանդեր">Desserts</h3>
-                    <p data-en="Sweet Treats & Bakery" data-am="Քաղցրավենիք և հրուշակեղեն">Sweet Treats & Bakery</p>
-                </div>
-
-                <div class="category-card" onclick="showPage('shisha-page')">
-                    <div class="card-icon"><i class="fa-solid fa-wind"></i></div>
-                    <h3 data-en="Shisha Lounge" data-am="Նարգիլե Լաունջ">Shisha Lounge</h3>
-                    <p data-en="Premium Flavors & Mixes" data-am="Պրեմիում համեր և խառնուրդներ">Premium Flavors & Mixes</p>
-                </div>
-            </div>
-
-            <footer class="main-footer">
-                <p data-en="Open Daily: 8:00 AM - 2:00 AM" data-am="Բաց ենք ամեն օր՝ 08:00 - 02:00">Open Daily: 8:00 AM - 2:00 AM</p>
-                <p data-en="📍 123 Lounge Street, City Center" data-am="📍 Քաղաքի կենտրոն, Լաունջ փողոց 123">📍 123 Lounge Street, City Center</p>
-            </footer>
-        </div>
-
-        <!-- ==================== COFFEE PAGE ==================== -->
-        <div id="coffee-page" class="view">
-            <button class="back-btn" onclick="showPage('main-menu')">
-                <i class="fa-solid fa-arrow-left"></i> <span data-en="Main Menu" data-am="Գլխավոր Մենյու">Main Menu</span>
+        <!-- CATEGORY NAVIGATION TABS -->
+        <nav class="category-nav">
+            <button class="nav-tab active" onclick="showCategory('coffee', this)">
+                <i class="fa-solid fa-mug-hot"></i> 
+                <span data-en="Coffee & Drinks" data-am="Սուրճ և Ըմպելիքներ">Coffee & Drinks</span>
             </button>
-            <h2 class="page-title" data-en="Coffee & Drinks" data-am="Սուրճ և Ըմպելիքներ">Coffee & Drinks</h2>
-            
-            <div class="menu-list">
+            <button class="nav-tab" onclick="showCategory('food', this)">
+                <i class="fa-solid fa-utensils"></i> 
+                <span data-en="Food" data-am="Ուտեստներ">Food</span>
+            </button>
+            <button class="nav-tab" onclick="showCategory('desserts', this)">
+                <i class="fa-solid fa-cake-candles"></i> 
+                <span data-en="Desserts" data-am="Աղանդեր">Desserts</span>
+            </button>
+            <button class="nav-tab" onclick="showCategory('shisha', this)">
+                <i class="fa-solid fa-wind"></i> 
+                <span data-en="Shisha Lounge" data-am="Նարգիլե Լաունջ">Shisha Lounge</span>
+            </button>
+        </nav>
+
+        <!-- ================= COFFEE CONTENT ================= -->
+        <div id="coffee" class="menu-content active">
+            <div class="section-header">
+                <h2 data-en="Coffee & Drinks" data-am="Սուրճ և Ըմպելիքներ">Coffee & Drinks</h2>
+                <p data-en="Crafted with precision and passion." data-am="Պատրաստված ճշգրտությամբ և կրքով:">Crafted with precision and passion.</p>
+            </div>
+            <div class="menu-grid">
                 <div class="menu-item">
-                    <div class="item-info">
+                    <div class="item-details">
                         <h3 data-en="Espresso" data-am="Էսպրեսսո">Espresso</h3>
-                        <p data-en="Rich, bold, and perfectly extracted" data-am="Հարուստ, թունդ և կատարյալ">Rich, bold, and perfectly extracted</p>
+                        <p data-en="Rich, bold, and perfectly extracted." data-am="Հարուստ, թունդ և կատարյալ:">Rich, bold, and perfectly extracted.</p>
                     </div>
-                    <span class="price">1500</span>
+                    <div class="item-price">1500</div>
                 </div>
                 <div class="menu-item">
-                    <div class="item-info">
+                    <div class="item-details">
                         <h3 data-en="Oat Milk Latte" data-am="Վարսակի կաթով Լատտե">Oat Milk Latte</h3>
-                        <p data-en="Creamy oat milk with double espresso" data-am="Սերուցքային վարսակի կաթ և կրկնակի էսպրեսսո">Creamy oat milk with double espresso</p>
+                        <p data-en="Creamy oat milk with double espresso." data-am="Սերուցքային վարսակի կաթ և կրկնակի էսպրեսսո:">Creamy oat milk with double espresso.</p>
                     </div>
-                    <span class="price">2200</span>
+                    <div class="item-price">2200</div>
                 </div>
                 <div class="menu-item featured">
-                    <div class="item-info">
-                        <h3 data-en="✨ Signature Cardamom Latte" data-am="✨ Ֆիրմային լատտե հիլով">✨ Signature Cardamom Latte</h3>
-                        <p data-en="House-spiced with aromatic cardamom" data-am="Պատրաստված է անուշահամ հիլով">House-spiced with aromatic cardamom</p>
+                    <span class="featured-badge" data-en="Signature" data-am="Ֆիրմային">Signature</span>
+                    <div class="item-details">
+                        <h3 data-en="Cardamom Latte" data-am="Հիլով Լատտե">Cardamom Latte</h3>
+                        <p data-en="House-spiced with aromatic cardamom." data-am="Պատրաստված է անուշահամ հիլով:">House-spiced with aromatic cardamom.</p>
                     </div>
-                    <span class="price">2500</span>
+                    <div class="item-price">2500</div>
                 </div>
             </div>
         </div>
 
-        <!-- ==================== FOOD PAGE ==================== -->
-        <div id="food-page" class="view">
-            <button class="back-btn" onclick="showPage('main-menu')">
-                <i class="fa-solid fa-arrow-left"></i> <span data-en="Main Menu" data-am="Գլխավոր Մենյու">Main Menu</span>
-            </button>
-            <h2 class="page-title" data-en="Food" data-am="Ուտեստներ">Food</h2>
-            
-            <div class="menu-list">
+        <!-- ================= FOOD CONTENT ================= -->
+        <div id="food" class="menu-content">
+            <div class="section-header">
+                <h2 data-en="Food" data-am="Ուտեստներ">Food</h2>
+                <p data-en="Fresh ingredients, exquisite flavors." data-am="Թարմ բաղադրիչներ, նուրբ համեր:">Fresh ingredients, exquisite flavors.</p>
+            </div>
+            <div class="menu-grid">
                 <div class="menu-item">
-                    <div class="item-info">
+                    <div class="item-details">
                         <h3 data-en="Avocado Toast" data-am="Ավոկադոյով տոստ">Avocado Toast</h3>
-                        <p data-en="Sourdough, poached egg, chili flakes" data-am="Խմորված հաց, խաշած ձու, կծու պղպեղ">Sourdough, poached egg, chili flakes</p>
+                        <p data-en="Sourdough, poached egg, chili flakes." data-am="Խմորված հաց, խաշած ձու, կծու պղպեղ:">Sourdough, poached egg, chili flakes.</p>
                     </div>
-                    <span class="price">3500</span>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <h3 data-en="Truffle Croissant" data-am="Տրյուֆելով կրուասան">Truffle Croissant</h3>
-                        <p data-en="Buttery layers with truffle cream" data-am="Կարագային շերտեր տրյուֆելային սերուցքով">Buttery layers with truffle cream</p>
-                    </div>
-                    <span class="price">2800</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ==================== DESSERTS PAGE ==================== -->
-        <div id="desserts-page" class="view">
-            <button class="back-btn" onclick="showPage('main-menu')">
-                <i class="fa-solid fa-arrow-left"></i> <span data-en="Main Menu" data-am="Գլխավոր Մենյու">Main Menu</span>
-            </button>
-            <h2 class="page-title" data-en="Desserts" data-am="Աղանդեր">Desserts</h2>
-            
-            <div class="menu-list">
-                <div class="menu-item">
-                    <div class="item-info">
-                        <h3 data-en="Dark Chocolate Mousse" data-am="Մուգ շոկոլադե մուս">Dark Chocolate Mousse</h3>
-                        <p data-en="70% cocoa, berry compote" data-am="70% կակաո, հատապտղային կոմպոտ">70% cocoa, berry compote</p>
-                    </div>
-                    <span class="price">3000</span>
+                    <div class="item-price">3500</div>
                 </div>
                 <div class="menu-item featured">
-                    <div class="item-info">
-                        <h3 data-en="✨ Kunafa Deluxe" data-am="✨ Դելյուքս քունաֆա">✨ Kunafa Deluxe</h3>
-                        <p data-en="Traditional with pistachio & cream" data-am="Ավանդական՝ պիստակով և սերուցքով">Traditional with pistachio & cream</p>
+                    <span class="featured-badge" data-en="Popular" data-am="Սիրված">Popular</span>
+                    <div class="item-details">
+                        <h3 data-en="Truffle Croissant" data-am="Տրյուֆելով կրուասան">Truffle Croissant</h3>
+                        <p data-en="Buttery layers with truffle cream." data-am="Կարագային շերտեր տրյուֆելային սերուցքով:">Buttery layers with truffle cream.</p>
                     </div>
-                    <span class="price">4000</span>
+                    <div class="item-price">2800</div>
                 </div>
             </div>
         </div>
 
-        <!-- ==================== SHISHA PAGE ==================== -->
-        <div id="shisha-page" class="view">
-            <button class="back-btn" onclick="showPage('main-menu')">
-                <i class="fa-solid fa-arrow-left"></i> <span data-en="Main Menu" data-am="Գլխավոր Մենյու">Main Menu</span>
-            </button>
-            <h2 class="page-title" data-en="Shisha Lounge" data-am="Նարգիլե Լաունջ">Shisha Lounge</h2>
-            
-            <div class="menu-list">
+        <!-- ================= DESSERTS CONTENT ================= -->
+        <div id="desserts" class="menu-content">
+            <div class="section-header">
+                <h2 data-en="Desserts" data-am="Աղանդեր">Desserts</h2>
+                <p data-en="The perfect sweet ending." data-am="Կատարյալ քաղցր ավարտ:">The perfect sweet ending.</p>
+            </div>
+            <div class="menu-grid">
                 <div class="menu-item">
-                    <div class="item-info">
+                    <div class="item-details">
+                        <h3 data-en="Dark Chocolate Mousse" data-am="Մուգ շոկոլադե մուս">Dark Chocolate Mousse</h3>
+                        <p data-en="70% cocoa, berry compote." data-am="70% կակաո, հատապտղային կոմպոտ:">70% cocoa, berry compote.</p>
+                    </div>
+                    <div class="item-price">3000</div>
+                </div>
+                <div class="menu-item featured">
+                    <span class="featured-badge" data-en="Chef's Choice" data-am="Շեֆի ընտրություն">Chef's Choice</span>
+                    <div class="item-details">
+                        <h3 data-en="Kunafa Deluxe" data-am="Դելյուքս քունաֆա">Kunafa Deluxe</h3>
+                        <p data-en="Traditional with pistachio & cream." data-am="Ավանդական՝ պիստակով և սերուցքով:">Traditional with pistachio & cream.</p>
+                    </div>
+                    <div class="item-price">4000</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= SHISHA CONTENT ================= -->
+        <div id="shisha" class="menu-content">
+            <div class="section-header">
+                <h2 data-en="Shisha Lounge" data-am="Նարգիլե Լաունջ">Shisha Lounge</h2>
+                <p data-en="Premium blends for a relaxing experience." data-am="Պրեմիում խառնուրդներ՝ հանգիստ հանգստի համար:">Premium blends for a relaxing experience.</p>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <div class="item-details">
                         <h3 data-en="Classic Shisha" data-am="Դասական նարգիլե">Classic Shisha</h3>
                         <p data-en="Traditional flavors • 60 min session" data-am="Ավանդական համեր • 60 րոպե">Traditional flavors • 60 min session</p>
                     </div>
-                    <span class="price">8000</span>
+                    <div class="item-price">8000</div>
                 </div>
                 <div class="menu-item">
-                    <div class="item-info">
+                    <div class="item-details">
                         <h3 data-en="Premium Shisha" data-am="Պրեմիում նարգիլե">Premium Shisha</h3>
                         <p data-en="Luxury blends • 75 min session" data-am="Լյուքս խառնուրդներ • 75 րոպե">Luxury blends • 75 min session</p>
                     </div>
-                    <span class="price">12000</span>
+                    <div class="item-price">12000</div>
                 </div>
                 <div class="menu-item featured">
-                    <div class="item-info">
-                        <h3 data-en="✨ Signature Mix: The Oasis" data-am="✨ Ֆիրմային խառնուրդ՝ Օազիս">✨ Signature Mix: The Oasis</h3>
-                        <p data-en="Blueberry, fresh mint & citrus blend" data-am="Հապալաս, թարմ անանուխ և ցիտրուս">Blueberry, fresh mint & citrus blend</p>
+                    <span class="featured-badge" data-en="Signature" data-am="Ֆիրմային">Signature</span>
+                    <div class="item-details">
+                        <h3 data-en="The Oasis Mix" data-am="Օազիս խառնուրդ">The Oasis Mix</h3>
+                        <p data-en="Blueberry, fresh mint & citrus blend." data-am="Հապալաս, թարմ անանուխ և ցիտրուս:">Blueberry, fresh mint & citrus blend.</p>
                     </div>
-                    <span class="price">15000</span>
+                    <div class="item-price">15000</div>
                 </div>
             </div>
         </div>
 
-    </div>
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p data-en="Open Daily: 8:00 AM - 2:00 AM  |  📍 123 Lounge Street, City Center" data-am="Բաց ենք ամեն օր՝ 08:00 - 02:00  |  📍 Քաղաքի կենտրոն, Լաունջ փողոց 123">
+                Open Daily: 8:00 AM - 2:00 AM  |  📍 123 Lounge Street, City Center
+            </p>
+            <p style="margin-top: 15px; opacity: 0.5;">© 2026 AURA Lounge. Portfolio Project.</p>
+        </footer>
 
-    <!-- JAVASCRIPT FOR NAVIGATION & LANGUAGE -->
+    </main>
+
+    <!-- JAVASCRIPT -->
     <script>
-        // 1. PAGE NAVIGATION
-        function showPage(pageId) {
-            const views = document.querySelectorAll('.view');
-            views.forEach(view => view.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // 1. CATEGORY TAB SWITCHING
+        function showCategory(categoryId, btnElement) {
+            // Hide all content sections
+            document.querySelectorAll('.menu-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected content section
+            document.getElementById(categoryId).classList.add('active');
+            
+            // Update active tab styling
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            btnElement.classList.add('active');
+            
+            // Smooth scroll to top of menu area on mobile
+            if (window.innerWidth < 768) {
+                document.querySelector('.category-nav').scrollIntoView({ behavior: 'smooth' });
+            }
         }
 
         // 2. LANGUAGE SWITCHER
         function setLanguage(lang) {
-            // Update all text elements
+            // Update text content
             document.querySelectorAll('[data-en]').forEach(el => {
                 el.textContent = el.getAttribute(`data-${lang}`);
             });
 
             // Update button styles
-            document.getElementById('btn-en').classList.remove('active');
-            document.getElementById('btn-am').classList.remove('active');
-            document.getElementById(`btn-${lang}`).classList.add('active');
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(lang === 'am' ? 'btn-am' : 'btn-en').classList.add('active');
 
-            // Change font family based on language
+            // Update font family
             if (lang === 'am') {
-                document.body.style.fontFamily = "'Noto Sans Armenian', sans-serif";
+                document.body.classList.add('armenian');
             } else {
-                document.body.style.fontFamily = "'Playfair Display', 'Noto Sans Armenian', sans-serif";
+                document.body.classList.remove('armenian');
             }
         }
     </script>
