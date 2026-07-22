@@ -1,1 +1,250 @@
 
+/* AURA LOUNGE CAFE - Interactive Bilingual Menu */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    font-family: 'Lato', 'Noto Sans Armenian', sans-serif;
+    color: #f4e4c1;
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: #1a1a1a;
+    position: relative;
+    overflow-x: hidden;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    padding-bottom: 40px;
+}
+
+/* LANGUAGE TOGGLE BUTTONS */
+.lang-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid #555;
+    color: #999;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.lang-btn.active {
+    background: #d4af37;
+    border-color: #d4af37;
+    color: #1a1a1a;
+}
+
+.lang-btn:hover:not(.active) {
+    border-color: #d4af37;
+    color: #d4af37;
+}
+
+/* PAGE SWITCHING ANIMATION */
+.view {
+    display: none;
+    padding: 40px 25px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.view.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MAIN MENU HUB */
+.main-header {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.cafe-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #d4af37;
+    letter-spacing: 6px;
+}
+
+.tagline {
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    color: #f4e4c1;
+    opacity: 0.8;
+}
+
+.divider {
+    width: 40px;
+    height: 2px;
+    background: #d4af37;
+    margin: 20px auto;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: #999;
+    letter-spacing: 1px;
+}
+
+/* Category Cards */
+.category-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.category-card {
+    background: #252525;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 30px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-card:hover {
+    background: #2a2a2a;
+    border-color: #d4af37;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+.category-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #f4e4c1;
+    margin-bottom: 8px;
+}
+
+.category-card p {
+    font-size: 0.75rem;
+    color: #888;
+    line-height: 1.4;
+}
+
+.main-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+/* SUB PAGES */
+.back-btn {
+    background: transparent;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.back-btn:hover {
+    background: #d4af37;
+    color: #1a1a1a;
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #d4af37;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+}
+
+/* Menu Items */
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #222;
+    border-radius: 8px;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+    background: #2a2a2a;
+    border-left-color: #d4af37;
+}
+
+.menu-item.featured {
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid #d4af37;
+    border-left: 4px solid #d4af37;
+}
+
+.item-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #f4e4c1;
+    margin-bottom: 5px;
+}
+
+.item-info p {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.price {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #d4af37;
+    font-weight: 700;
+    margin-left: 15px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 400px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+    .cafe-name {
+        font-size: 2.5rem;
+    }
+}
