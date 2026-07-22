@@ -1,1 +1,212 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Lounge Cafe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- English and Armenian Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+Armenian:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- LANGUAGE TOGGLE (Top Right) -->
+        <div class="lang-switch">
+            <button id="btn-en" class="lang-btn active" onclick="setLanguage('en')">EN</button>
+            <button id="btn-am" class="lang-btn" onclick="setLanguage('am')">ՀԱՅ</button>
+        </div>
+
+        <!-- ==================== MAIN MENU HUB ==================== -->
+        <div id="main-menu" class="view active">
+            <header class="main-header">
+                <h1 class="cafe-name">AURA</h1>
+                <p class="tagline" data-en="LOUNGE & CAFE" data-am="ԱՈՒՆ ԵՎ ՍՐՃԱՐԱՆ">LOUNGE & CAFE</p>
+                <div class="divider"></div>
+                <p class="subtitle" data-en="Select a category to explore" data-am="Ընտրեք բաժինը դիտելու համար">Select a category to explore</p>
+            </header>
+
+            <div class="category-grid">
+                <div class="category-card" onclick="showPage('coffee-page')">
+                    <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <h3 data-en="Coffee & Drinks" data-am="Սուրճ և Ըմպելիքներ">Coffee & Drinks</h3>
+                    <p data-en="Espresso, Lattes & Cold Brews" data-am="Էսպրեսսո, Լատտե և Սառը սուրեր">Espresso, Lattes & Cold Brews</p>
+                </div>
+
+                <div class="category-card" onclick="showPage('food-page')">
+                    <div class="card-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <h3 data-en="Food" data-am="Ուտեստներ">Food</h3>
+                    <p data-en="Breakfast, Wraps & Savory Bites" data-am="Նախաճաշ, Ռափներ և ուտեստներ">Breakfast, Wraps & Savory Bites</p>
+                </div>
+
+                <div class="category-card" onclick="showPage('desserts-page')">
+                    <div class="card-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                    <h3 data-en="Desserts" data-am="Աղանդեր">Desserts</h3>
+                    <p data-en="Sweet Treats & Bakery" data-am="Քաղցրավենիք և հրուշակեղեն">Sweet Treats & Bakery</p>
+                </div>
+
+                <div class="category-card" onclick="showPage('shisha-page')">
+                    <div class="card-icon"><i class="fa-solid fa-wind"></i></div>
+                    <h3 data-en="Shisha Lounge" data-am="Նարգիլե Լաունջ">Shisha Lounge</h3>
+                    <p data-en="Premium Flavors & Mixes" data-am="Պրեմիում համեր և խառնուրդներ">Premium Flavors & Mixes</p>
+                </div>
+            </div>
+
+            <footer class="main-footer">
+                <p data-en="Open Daily: 8:00 AM - 2:00 AM" data-am="Բաց է ամեն օր: 08:00 - 02:00">Open Daily: 8:00 AM - 2:00 AM</p>
+                <p data-en="📍 123 Lounge Street, City Center" data-am=" Քաղաքի կենտրոն, 123 հասցե">📍 123 Lounge Street, City Center</p>
+            </footer>
+        </div>
+
+        <!-- ==================== COFFEE PAGE ==================== -->
+        <div id="coffee-page" class="view">
+            <button class="back-btn" onclick="showPage('main-menu')">
+                <i class="fa-solid fa-arrow-left"></i> <span data-en="Main Menu" data-am="լխավոր Մենյու">Main Menu</span>
+            </button>
+            <h2 class="page-title" data-en="Coffee & Drinks" data-am="Սուրճ և Ըմպելիքներ">Coffee & Drinks</h2>
+            
+            <div class="menu-list">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3 data-en="Espresso" data-am="Էսպրեսսո">Espresso</h3>
+                        <p data-en="Rich, bold, and perfectly extracted" data-am="Հարուստ, թունդ և կատարյալ">Rich, bold, and perfectly extracted</p>
+                    </div>
+                    <span class="price">1500</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3 data-en="Oat Milk Latte" data-am="Վարսակի կաթով Լատտե">Oat Milk Latte</h3>
+                        <p data-en="Creamy oat milk with double espresso" data-am="Սերուցքային վարսակի կաթ և կրկնակի էսպրեսսո">Creamy oat milk with double espresso</p>
+                    </div>
+                    <span class="price">2200</span>
+                </div>
+                <div class="menu-item featured">
+                    <div class="item-info">
+                        <h3 data-en="✨ Signature Cardamom Latte" data-am="✨ Ֆիրմային Հիլով Լատտե">✨ Signature Cardamom Latte</h3>
+                        <p data-en="House-spiced with aromatic cardamom" data-am="անը պատրաստված անուշահամ հիլով">House-spiced with aromatic cardamom</p>
+                    </div>
+                    <span class="price">2500</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== FOOD PAGE ==================== -->
+        <div id="food-page" class="view">
+            <button class="back-btn" onclick="showPage('main-menu')">
+                <i class="fa-solid fa-arrow-left"></i> <span data-en="Main Menu" data-am="Գլխավոր Մենյու">Main Menu</span>
+            </button>
+            <h2 class="page-title" data-en="Food" data-am="ւտեստներ">Food</h2>
+            
+            <div class="menu-list">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3 data-en="Avocado Toast" data-am="Ավոկադոյով տոստ">Avocado Toast</h3>
+                        <p data-en="Sourdough, poached egg, chili flakes" data-am="Խմորված հաց, խաշած ու, կծու պղպեղ">Sourdough, poached egg, chili flakes</p>
+                    </div>
+                    <span class="price">3500</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3 data-en="Truffle Croissant" data-am="Տրյուֆելով կրուասան">Truffle Croissant</h3>
+                        <p data-en="Buttery layers with truffle cream" data-am="Կարագային շերտեր տրյուֆելային սերուցքով">Buttery layers with truffle cream</p>
+                    </div>
+                    <span class="price">2800</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== DESSERTS PAGE ==================== -->
+        <div id="desserts-page" class="view">
+            <button class="back-btn" onclick="showPage('main-menu')">
+                <i class="fa-solid fa-arrow-left"></i> <span data-en="Main Menu" data-am="Գլխավոր Մենյու">Main Menu</span>
+            </button>
+            <h2 class="page-title" data-en="Desserts" data-am="Աղանդեր">Desserts</h2>
+            
+            <div class="menu-list">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3 data-en="Dark Chocolate Mousse" data-am="Մուգ շոկոլադե մուս">Dark Chocolate Mousse</h3>
+                        <p data-en="70% cocoa, berry compote" data-am="70% կակաո, հատապտղային կոմպոտ">70% cocoa, berry compote</p>
+                    </div>
+                    <span class="price">3000</span>
+                </div>
+                <div class="menu-item featured">
+                    <div class="item-info">
+                        <h3 data-en="✨ Kunafa Deluxe" data-am="✨ Դելյուքս Քունաֆա">✨ Kunafa Deluxe</h3>
+                        <p data-en="Traditional with pistachio & cream" data-am="Ավանդական՝ պիստակով և սերուցքով">Traditional with pistachio & cream</p>
+                    </div>
+                    <span class="price">4000</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== SHISHA PAGE ==================== -->
+        <div id="shisha-page" class="view">
+            <button class="back-btn" onclick="showPage('main-menu')">
+                <i class="fa-solid fa-arrow-left"></i> <span data-en="Main Menu" data-am="Գլխավոր Մենյու">Main Menu</span>
+            </button>
+            <h2 class="page-title" data-en="Shisha Lounge" data-am="Նարգիլե Լաունջ">Shisha Lounge</h2>
+            
+            <div class="menu-list">
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3 data-en="Classic Shisha" data-am="Դասական նարգիլե">Classic Shisha</h3>
+                        <p data-en="Traditional flavors • 60 min session" data-am="Ավանդական համեր • 60 րոպե">Traditional flavors • 60 min session</p>
+                    </div>
+                    <span class="price">8000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-info">
+                        <h3 data-en="Premium Shisha" data-am="Պրեմիում նարգիլե">Premium Shisha</h3>
+                        <p data-en="Luxury blends • 75 min session" data-am="Լյուքս խառնուրդներ • 75 րոպե">Luxury blends • 75 min session</p>
+                    </div>
+                    <span class="price">12000</span>
+                </div>
+                <div class="menu-item featured">
+                    <div class="item-info">
+                        <h3 data-en="✨ Signature Mix: The Oasis" data-am="✨ Ֆիրմային խառնուրդ: Օազիս">✨ Signature Mix: The Oasis</h3>
+                        <p data-en="Blueberry, fresh mint & citrus blend" data-am="Կապտաթուփ, թարմ անանուխ և ցիտրուս">Blueberry, fresh mint & citrus blend</p>
+                    </div>
+                    <span class="price">15000</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT FOR NAVIGATION & LANGUAGE -->
+    <script>
+        // 1. PAGE NAVIGATION
+        function showPage(pageId) {
+            const views = document.querySelectorAll('.view');
+            views.forEach(view => view.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 2. LANGUAGE SWITCHER
+        function setLanguage(lang) {
+            // Update all text elements
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+
+            // Update button styles
+            document.getElementById('btn-en').classList.remove('active');
+            document.getElementById('btn-am').classList.remove('active');
+            document.getElementById(`btn-${lang}`).classList.add('active');
+
+            // Change font family based on language
+            if (lang === 'am') {
+                document.body.style.fontFamily = "'Noto Sans Armenian', sans-serif";
+            } else {
+                document.body.style.fontFamily = "'Lato', 'Noto Sans Armenian', sans-serif";
+            }
+        }
+    </script>
+</body>
+</html>
