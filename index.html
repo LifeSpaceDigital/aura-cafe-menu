@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+Armenian:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Auto-redirect to correct GitHub Pages path -->
+    <script>
+      if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+        window.location.href = '/aura-cafe-menu/';
+      }
+    </script>
 </head>
 <body>
 
@@ -25,7 +31,7 @@
         <div id="main-menu" class="view active">
             <header class="main-header">
                 <h1 class="cafe-name">AURA</h1>
-                <p class="tagline" data-en="LOUNGE & CAFE" data-am="Լաունջ ԵՎ ՍՐՃԱՐԱՆ">LOUNGE & CAFE</p>
+                <p class="tagline" data-en="LOUNGE & CAFE" data-am="Լաունջ և Սրճարան">LOUNGE & CAFE</p>
                 <div class="divider"></div>
                 <p class="subtitle" data-en="Select a category to explore" data-am="Ընտրեք բաժինը դիտելու համար">Select a category to explore</p>
             </header>
@@ -34,13 +40,13 @@
                 <div class="category-card" onclick="showPage('coffee-page')">
                     <div class="card-icon"><i class="fa-solid fa-mug-hot"></i></div>
                     <h3 data-en="Coffee & Drinks" data-am="Սուրճ և Ըմպելիքներ">Coffee & Drinks</h3>
-                    <p data-en="Espresso, Lattes & Cold Brews" data-am="Էսպրեսսո, Լատտե և Սառը սուրճ">Espresso, Lattes & Cold Brews</p>
+                    <p data-en="Espresso, Lattes & Cold Brews" data-am="Էսպրեսսո, լատտե և սառը սուրճ">Espresso, Lattes & Cold Brews</p>
                 </div>
 
                 <div class="category-card" onclick="showPage('food-page')">
                     <div class="card-icon"><i class="fa-solid fa-utensils"></i></div>
                     <h3 data-en="Food" data-am="Ուտեստներ">Food</h3>
-                    <p data-en="Breakfast, Wraps & Savory Bites" data-am="Նախաճաշ, Ռափներ և ուտեստներ">Breakfast, Wraps & Savory Bites</p>
+                    <p data-en="Breakfast, Wraps & Savory Bites" data-am="Նախաճաշ, ռափեր և թեթև ուտեստներ">Breakfast, Wraps & Savory Bites</p>
                 </div>
 
                 <div class="category-card" onclick="showPage('desserts-page')">
@@ -57,8 +63,8 @@
             </div>
 
             <footer class="main-footer">
-                <p data-en="Open Daily: 8:00 AM - 2:00 AM" data-am="Բաց է ամեն օր: 08:00 - 02:00">Open Daily: 8:00 AM - 2:00 AM</p>
-                <p data-en="📍 123 Lounge Street, City Center" data-am=" Քաղաքի կենտրոն, 123 հասցե">📍 123 Lounge Street, City Center</p>
+                <p data-en="Open Daily: 8:00 AM - 2:00 AM" data-am="Բաց ենք ամեն օր՝ 08:00 - 02:00">Open Daily: 8:00 AM - 2:00 AM</p>
+                <p data-en="📍 123 Lounge Street, City Center" data-am="📍 Քաղաքի կենտրոն, Լաունջ փողոց 123">📍 123 Lounge Street, City Center</p>
             </footer>
         </div>
 
@@ -86,8 +92,8 @@
                 </div>
                 <div class="menu-item featured">
                     <div class="item-info">
-                        <h3 data-en="✨ Signature Cardamom Latte" data-am="✨ Ֆիրմային Հիլով Լատտե">✨ Signature Cardamom Latte</h3>
-                        <p data-en="House-spiced with aromatic cardamom" data-am="անը պատրաստված անուշահամ հիլով">House-spiced with aromatic cardamom</p>
+                        <h3 data-en="✨ Signature Cardamom Latte" data-am="✨ Ֆիրմային լատտե հիլով">✨ Signature Cardamom Latte</h3>
+                        <p data-en="House-spiced with aromatic cardamom" data-am="Պատրաստված է անուշահամ հիլով">House-spiced with aromatic cardamom</p>
                     </div>
                     <span class="price">2500</span>
                 </div>
@@ -99,13 +105,13 @@
             <button class="back-btn" onclick="showPage('main-menu')">
                 <i class="fa-solid fa-arrow-left"></i> <span data-en="Main Menu" data-am="Գլխավոր Մենյու">Main Menu</span>
             </button>
-            <h2 class="page-title" data-en="Food" data-am="ւտեստներ">Food</h2>
+            <h2 class="page-title" data-en="Food" data-am="Ուտեստներ">Food</h2>
             
             <div class="menu-list">
                 <div class="menu-item">
                     <div class="item-info">
                         <h3 data-en="Avocado Toast" data-am="Ավոկադոյով տոստ">Avocado Toast</h3>
-                        <p data-en="Sourdough, poached egg, chili flakes" data-am="Խմորված հաց, խաշած ու, կծու պղպեղ">Sourdough, poached egg, chili flakes</p>
+                        <p data-en="Sourdough, poached egg, chili flakes" data-am="Խմորված հաց, խաշած ձու, կծու պղպեղ">Sourdough, poached egg, chili flakes</p>
                     </div>
                     <span class="price">3500</span>
                 </div>
@@ -136,7 +142,7 @@
                 </div>
                 <div class="menu-item featured">
                     <div class="item-info">
-                        <h3 data-en="✨ Kunafa Deluxe" data-am="✨ Դելյուքս Քունաֆա">✨ Kunafa Deluxe</h3>
+                        <h3 data-en="✨ Kunafa Deluxe" data-am="✨ Դելյուքս քունաֆա">✨ Kunafa Deluxe</h3>
                         <p data-en="Traditional with pistachio & cream" data-am="Ավանդական՝ պիստակով և սերուցքով">Traditional with pistachio & cream</p>
                     </div>
                     <span class="price">4000</span>
@@ -168,8 +174,8 @@
                 </div>
                 <div class="menu-item featured">
                     <div class="item-info">
-                        <h3 data-en="✨ Signature Mix: The Oasis" data-am="✨ Ֆիրմային խառնուրդ: Օազիս">✨ Signature Mix: The Oasis</h3>
-                        <p data-en="Blueberry, fresh mint & citrus blend" data-am="Կապտաթուփ, թարմ անանուխ և ցիտրուս">Blueberry, fresh mint & citrus blend</p>
+                        <h3 data-en="✨ Signature Mix: The Oasis" data-am="✨ Ֆիրմային խառնուրդ՝ Օազիս">✨ Signature Mix: The Oasis</h3>
+                        <p data-en="Blueberry, fresh mint & citrus blend" data-am="Հապալաս, թարմ անանուխ և ցիտրուս">Blueberry, fresh mint & citrus blend</p>
                     </div>
                     <span class="price">15000</span>
                 </div>
